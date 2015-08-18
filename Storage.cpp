@@ -50,7 +50,7 @@ void Storage::changePrice(){
         float factor = rand_0_1()+0.5;
         p.second = p.second * factor;
         if (p.second < item_init.find(p.first)->second) {
-            p.second =item_init.at(p.first);
+            p.second = item_init.at(p.first);
         }
         item_base[p.first] = p.second;
     });
@@ -78,7 +78,10 @@ map<string,int> Storage::getOneList(int size){
 void Storage::buyItem(string item, int count){
     int price = item_base[item];
     gold -= count*price;
-    storage[item].count += count;
+    ItemInfo info;
+    info.count = count + storage[item].count;
+    info.price = price;
+    storage[item] = info;
     dumpItem();
 }
 
@@ -129,4 +132,12 @@ string Storage::sellEvent(string item){
 
 void Storage::healthEvent(){
     
+}
+
+Storage* Storage::create(){
+    Storage * ret = new (std::nothrow)Storage;
+    if (ret && ret->init()) {
+        return ret;
+    }
+    return nullptr;
 }

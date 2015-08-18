@@ -13,14 +13,14 @@ bool BuyLayer::init(){
     if (!Layer::init()) {
         return false;
     }
-    for (int i = 0; i < 5; i ++) {
-        button[i] = Button::create("popover_bonus_bg_weight-hd.png");
-        button[i]->setPosition(Vec2(750/2, 50 * i + 200));
-        button[i]->addTouchEventListener(CC_CALLBACK_2(BuyLayer::clickButton, this));
-        button[i]->setTag(i);
-        button[i]->setScale(2);
-        this->addChild(button[i]);
-    }
+//    for (int i = 0; i < 5; i ++) {
+//        button[i] = Button::create("b1.png","b2.png","b3.png");
+//        button[i]->setPosition(Vec2(750/2, 100 * i + 200));
+//        button[i]->addTouchEventListener(CC_CALLBACK_2(BuyLayer::clickButton, this));
+//        button[i]->setTag(i);
+//        vector_button.push_back(button[i]);
+//        this->addChild(button[i]);
+//    }
     
     button_ref = Button::create("popover_bonus_bg_weight-hd.png");
     button_ref->setPosition(Vec2(750/3, 600));
@@ -55,11 +55,39 @@ void BuyLayer::clickButton(Ref *ref,Widget::TouchEventType type){
 }
 
 void BuyLayer::refreshList(){
+    
+    for_each(vector_button.begin(), vector_button.end(), [](Button *button){
+        button->removeFromParent();
+    });
+    vector_button.clear();
+    list_buy->removeAllChildren();
+    
     list = storage->getOneList();
     int i = 0;
     for_each(list.begin(), list.end(), [this,&i](pair<string, int> p){
-        button[i]->setName(p.first);
-        button[i]->setTitleText(StringUtils::format("%s:%d",p.first.c_str(),p.second));
+        ValueMap config = storage->getConfig();
+        string file_highlight = config[p.first].asValueMap().at("image_highlight").asString();
+        string file_normal = config[p.first].asValueMap().at("image_normal").asString();
+        string file_disable = config[p.first].asValueMap().at("image_disable").asString();
+        Button *button = Button::create(file_normal,file_highlight,file_disable);
+        button->setName(p.first);
+        button->setTitleFontSize(26);
+        button->setTitleText(StringUtils::format("%s:%d",p.first.c_str(),p.second));
+        button->setPosition(Vec2(750/2, 100 * i + 200));
+        button->addTouchEventListener(CC_CALLBACK_2(BuyLayer::clickButton, this));
+        this->addChild(button);
+        vector_button.push_back(button);
         i++;
+        list_buy->pushBackCustomItem(button);
     });
+}
+
+void BuyLayer::getStarFunc(){
+    static int i = 0;
+    int time = rand()%300;
+    i++;
+    if (time == 1) {
+        log("[get start] %d",i);
+        i = 0;
+    }
 }

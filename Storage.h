@@ -25,22 +25,31 @@ class Storage:public Singleton<Storage> {
     map<string,int> buy_list;
     map<string,ItemInfo> storage;
 
-    int gold = 3000;
-    int health = 100;
-    int reputation＝100;
 public:
+    
     bool init();
+    static Storage* create();
+    void dumpItem();
+    
     void buyItem(string item, int count);
     void sellItem(string item,int count);
+    
     string changePositionEvent();
     string sellEvent(string item);
     void healthEvent();
-
+    
+    map<string,int> getOneList(int size = 5);
     map<string,ItemInfo> getStoryage(){
         return storage;
     }
-    void dumpItem();
-    map<string,int> getOneList(int size = 5);
+    ValueMap getConfig(){
+        return config_base;
+    }
+    
+    int gold = 3000;
+    int health = 100;
+    int reputation＝100;
+    int store = 100;
 
 };
 

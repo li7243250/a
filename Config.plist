@@ -4,6 +4,96 @@
 <dict>
 	<key>曼波鱼</key>
 	<dict>
+		<key>image_highlight</key>
+		<string>b1.png</string>
+		<key>image_disable</key>
+		<string>b2.png</string>
+		<key>image_normal</key>
+		<string>b3.png</string>
+		<key>event</key>
+		<dict>
+			<key>wtf</key>
+			<real>0.5</real>
+			<key>grt</key>
+			<integer>2</integer>
+		</dict>
+		<key>price</key>
+		<integer>50</integer>
+		<key>helth</key>
+		<dict>
+			<key>upper</key>
+			<string>-1</string>
+		</dict>
+		<key>reputation</key>
+		<dict>
+			<key>upper</key>
+			<string>2</string>
+		</dict>
+	</dict>
+	<key>a</key>
+	<dict>
+		<key>image_highlight</key>
+		<string>b1.png</string>
+		<key>image_disable</key>
+		<string>b2.png</string>
+		<key>image_normal</key>
+		<string>b3.png</string>
+		<key>event</key>
+		<dict>
+			<key>wtf</key>
+			<real>0.5</real>
+			<key>grt</key>
+			<integer>2</integer>
+		</dict>
+		<key>price</key>
+		<integer>100</integer>
+		<key>helth</key>
+		<dict>
+			<key>upper</key>
+			<string>-1</string>
+		</dict>
+		<key>reputation</key>
+		<dict>
+			<key>upper</key>
+			<string>2</string>
+		</dict>
+	</dict>
+	<key>b</key>
+	<dict>
+		<key>image_highlight</key>
+		<string>b1.png</string>
+		<key>image_disable</key>
+		<string>b2.png</string>
+		<key>image_normal</key>
+		<string>b3.png</string>
+		<key>event</key>
+		<dict>
+			<key>wtf</key>
+			<real>0.5</real>
+			<key>grt</key>
+			<integer>2</integer>
+		</dict>
+		<key>price</key>
+		<integer>200</integer>
+		<key>helth</key>
+		<dict>
+			<key>upper</key>
+			<string>-1</string>
+		</dict>
+		<key>reputation</key>
+		<dict>
+			<key>upper</key>
+			<string>2</string>
+		</dict>
+	</dict>
+	<key>c</key>
+	<dict>
+		<key>image_highlight</key>
+		<string>b1.png</string>
+		<key>image_disable</key>
+		<string>b2.png</string>
+		<key>image_normal</key>
+		<string>b3.png</string>
 		<key>event</key>
 		<dict>
 			<key>wtf</key>
@@ -24,8 +114,14 @@
 			<string>2</string>
 		</dict>
 	</dict>
-	<key>曼波鱼 - 2</key>
+	<key>d</key>
 	<dict>
+		<key>image_highlight</key>
+		<string>b1.png</string>
+		<key>image_disable</key>
+		<string>b2.png</string>
+		<key>image_normal</key>
+		<string>b3.png</string>
 		<key>event</key>
 		<dict>
 			<key>wtf</key>
@@ -34,7 +130,7 @@
 			<integer>2</integer>
 		</dict>
 		<key>price</key>
-		<integer>500</integer>
+		<integer>1000</integer>
 		<key>helth</key>
 		<dict>
 			<key>upper</key>
@@ -46,8 +142,14 @@
 			<string>2</string>
 		</dict>
 	</dict>
-	<key>曼波鱼 - 3</key>
+	<key>e</key>
 	<dict>
+		<key>image_highlight</key>
+		<string>b1.png</string>
+		<key>image_disable</key>
+		<string>b2.png</string>
+		<key>image_normal</key>
+		<string>b3.png</string>
 		<key>event</key>
 		<dict>
 			<key>wtf</key>
@@ -56,7 +158,7 @@
 			<integer>2</integer>
 		</dict>
 		<key>price</key>
-		<integer>500</integer>
+		<real>2000</real>
 		<key>helth</key>
 		<dict>
 			<key>upper</key>
@@ -68,8 +170,14 @@
 			<string>2</string>
 		</dict>
 	</dict>
-	<key>曼波鱼 - 4</key>
+	<key>f</key>
 	<dict>
+		<key>image_highlight</key>
+		<string>b1.png</string>
+		<key>image_disable</key>
+		<string>b2.png</string>
+		<key>image_normal</key>
+		<string>b3.png</string>
 		<key>event</key>
 		<dict>
 			<key>wtf</key>
@@ -78,7 +186,7 @@
 			<integer>2</integer>
 		</dict>
 		<key>price</key>
-		<integer>500</integer>
+		<integer>5000</integer>
 		<key>helth</key>
 		<dict>
 			<key>upper</key>
@@ -90,8 +198,14 @@
 			<string>2</string>
 		</dict>
 	</dict>
-	<key>曼波鱼 - 5</key>
+	<key>g</key>
 	<dict>
+		<key>image_highlight</key>
+		<string>b1.png</string>
+		<key>image_disable</key>
+		<string>b2.png</string>
+		<key>image_normal</key>
+		<string>b3.png</string>
 		<key>event</key>
 		<dict>
 			<key>wtf</key>
@@ -100,29 +214,7 @@
 			<integer>2</integer>
 		</dict>
 		<key>price</key>
-		<integer>500</integer>
-		<key>helth</key>
-		<dict>
-			<key>upper</key>
-			<string>-1</string>
-		</dict>
-		<key>reputation</key>
-		<dict>
-			<key>upper</key>
-			<string>2</string>
-		</dict>
-	</dict>
-	<key>曼波鱼 - 6</key>
-	<dict>
-		<key>event</key>
-		<dict>
-			<key>wtf</key>
-			<real>0.5</real>
-			<key>grt</key>
-			<integer>2</integer>
-		</dict>
-		<key>price</key>
-		<integer>500</integer>
+		<integer>10000</integer>
 		<key>helth</key>
 		<dict>
 			<key>upper</key>
