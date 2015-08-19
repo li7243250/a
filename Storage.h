@@ -36,7 +36,7 @@ public:
     
     string changePositionEvent();
     string sellEvent(string item);
-    void healthEvent();
+    void healthEvent(string item);
     
     map<string,int> getOneList(int size = 5);
     map<string,ItemInfo> getStoryage(){
@@ -48,8 +48,9 @@ public:
     
     int gold = 3000;
     int health = 100;
-    int reputation＝100;
+    int reputation = 100;
     int store = 100;
+    int current_store = 0;
 
 };
 

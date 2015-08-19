@@ -2,7 +2,7 @@
 //  BuyLayer.h
 //  TouchFish
 //
-//  Created by mac mini on 15/8/17.
+//  Created by mac mini on 15/8/19.
 //
 //
 
@@ -10,26 +10,22 @@
 #define __TouchFish__BuyLayer__
 
 #include "Common.h"
-#include "Storage.h"
 
 class BuyLayer:public Layer {
     bool init();
-    void clickButton(Ref *ref,Widget::TouchEventType type);
-    void refreshList();
+    void initList();
+    void selectBuilding(Ref* ref,Widget::TouchEventType type);
+    ValueMap getConfigByName(string str);
 
-    Button* createButton(string file_normal,string file_highLight,string file_disable);
-    ListView *list_buy;
-    Button *button[5];
-    Button *button_ref;
-    Button *button_sell;
-    Storage *storage;
+    Button *button_buy;
+    ListView *list;
+    ImageView *image_select;
+    ValueMap config;
     
-    map<string,int> list;
-    vector<Button *> vector_button;
+    int select_price;
+
 public:
     CREATE_FUNC(BuyLayer);
-    static void getStarFunc();
-
 };
 
 #endif /* defined(__TouchFish__BuyLayer__) */

@@ -77,20 +77,33 @@ map<string,int> Storage::getOneList(int size){
 
 void Storage::buyItem(string item, int count){
     int price = item_base[item];
+    if (count == 0 || count*price>gold) {
+        return;
+    }
+
+    current_store += count;
+    
     gold -= count*price;
     ItemInfo info;
-    info.count = count + storage[item].count;
-    info.price = price;
-    storage[item] = info;
+    if (storage.find(item)!=storage.end()) {
+        storage[item].price = (storage[item].price * storage[item].count + price * count)/(storage[item].count + count);
+        storage[item].count = count + storage[item].count;
+    }else{
+        info.price = price;
+        info.count = count + storage[item].count;
+        storage[item] = info;
+    }
     dumpItem();
 }
 
 void Storage::sellItem(string item,int count){
     
     if (buy_list.find(item) == buy_list.end()) {
+        log("item not find in left list");
         return;
     }
     
+    current_store -= count;
     storage[item].count -= count;
     gold+=count*item_base[item];
     if (storage[item].count <= 0) {
@@ -117,21 +130,26 @@ void Storage::dumpItem(){
     for_each(storage.begin(), storage.end(), [](pair<string, ItemInfo> it){
         log("[storage]%s  %d  %d",it.first.c_str(),it.second.count ,it.second.price);
     });
+    
 }
 
 string Storage::sellEvent(string item){
     ValueMap event = config_base[item].asValueMap().at("reputation").asValueMap();
     if (event.size() > 0) {
         pair<string, Value> random_event = getPairRandom(event);
-        health+=random_event.second.asInt();
+        reputation += random_event.second.asInt();
         return random_event.first;
         
     }
     return "";
 }
 
-void Storage::healthEvent(){
-    
+void Storage::healthEvent(string item){
+    ValueMap event = config_base[item].asValueMap().at("health").asValueMap();
+    if (event.size() > 0) {
+        pair<string, Value> random_event = getPairRandom(event);
+        health += random_event.second.asInt();
+    }
 }
 
 Storage* Storage::create(){

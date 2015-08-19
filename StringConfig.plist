@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>item 0</key>
+	<dict>
+		<key>id</key>
+		<string>1</string>
+		<key>desc</key>
+		<string>hahahahah[%s]aha[%d]ah</string>
+	</dict>
+	<key>item 1</key>
+	<dict>
+		<key>id</key>
+		<string>2</string>
+		<key>desc</key>
+		<string>wtf[%d]</string>
+	</dict>
+	<key>item 2</key>
+	<dict>
+		<key>id</key>
+		<string>3</string>
+		<key>desc</key>
+		<string>not find</string>
+		<key>item 3</key>
+		<string></string>
+	</dict>
+</dict>
+</plist>

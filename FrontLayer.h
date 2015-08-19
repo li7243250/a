@@ -18,23 +18,40 @@ class FrontLayer:public Layer {
     void refreshSellList();
     void refreshStorageList();
     void clickButton(Ref *ref,Widget::TouchEventType type);
-    void setSlider();
+    void clickStoryageButton(Ref *ref,Widget::TouchEventType type);
+    void setCurrentPanel(Widget *panel);
     
-    void bindButton(Button *button);
-    void disableAllButton(bool disable);
+    void sliderChange(Ref* ref,Slider::EventType type);
+    void refreshSlider(Slider* slider);
     
+    void eventSell();
+    
+    void disableAllButton(vector<Button *> bt,bool disable);
+    void refreshGold();
+        
     Node *node_csb;
     Button *button_buy,*button_sell;
-    ListView *list_buy,*list_storage;
+    Button *button_change_market;
+    ListView *list_sell,*list_storage;
+    Widget *cell_sell,*cell_storage;
+    Widget *panel_news,*panel_message,*panel_sell,*panel_buy;
     
-    Text *text_slider;
+    Text *text_buy_slider;
+    Text *text_sell_slider;
+    Slider *slider_buy;
+    Slider *slider_sell;
+    
+    
+    Text *text_gold;
     int max;
     Storage *storage;
-    Slider *slider;
     map<string,int> map_buylist;
-
+    string select_item;
     
     vector<Button *> vector_button;
+    vector<Button *> vector_sell;
+    vector<Button *> vector_storage;
+    
 public:
     CREATE_FUNC(FrontLayer);
 };
